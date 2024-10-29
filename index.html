@@ -9,36 +9,84 @@
     <script src="/assets/js/customStyleConfig.js"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css" />
+    <!-- javaScript -->
+    <script src="/assets/js/previewFXNS.js" defer></script>
+    <!-- domtoimage -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+
+
   </head>
-  <body class="flex items-center justify-center min-h-screen bg-gray-50 p-4">
-     <div class="bg-white p-4 md:p-8 rounded-lg border-x border-b border-t-4 border-t-emerald-500 w-full md:w-[60%] lg:w-[45%]">
-        <div class="flex">
-          <span class="rounded-full bg-gray-100 p-6 mb-6"><img src="./assets/images/profile.svg" alt="" class="h-4"></span>
+  <body class="px-4 md:px-32 min-h-screen flex items-center">
+     <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-4">
+       <div>
+
+        <img src="/assets/images/icon.png" alt="" class="h-10">
+        <p class="mb-6 text-lg md:text-2xl font-semibold">Create Your Personalized <span class="text-[#27D327]">Gratitude Challenge</span> Flier</p>
+
+        <div class="grid gap-1 mb-4">
+          <span class="text-sm">Your name:</span>
+          <input type="text" class="border w-full p-3 rounded active:outline-0 focus:outline-0" placeholder="Abdul Rahman" id="nameInput" oninput="updateName()">
         </div>
-        <p>Akeem Hassan</p>
-        <p class="text-sm  text-gray-400 mb-2">Technical Assistat to the SA on Innovation and Technology</p>
-        <div class=" text-sm underline text-emerald-400">07032202333</div>
-        <hr class="my-6 border-dashed">
-        <div class="flex gap-3 items-start">
-          <img src="./assets/images/office.svg" alt="" class="h-4 mt-1">
-          <div class="grid">
-            <span class="">Lagos State Office of Innovation and Technology.</span>
-            <span class="text-sm text-gray-400">Alausa Secretariate, Ikeja.</span>
-            <span class="text-sm text-gray-400">Lagos, Nigeria.</span>
+
+        <div class="flex justify-between items-center bg-[#0A222E] p-4 rounded">
+          <div class="grid gap-1">
+            <div class="flex items-center gap-2">
+              <img src="/assets/images/upload.svg" alt="" class="h-5">
+              <span class="text-white">Upload image</span>
+            </div>
+            <div class="text-xs text-gray-400">Supported file types: Jpeg, JPG, PNG</div>
           </div>
-        </div>
-        <div class="flex gap-3 items-start mt-6">
-          <img src="./assets/images/email.svg" alt="" class="h-4 mt-[5px]">
           <div>
-             Akeemhassan@lagosstate.gov.ng
+            <input type="file" id="fileInput" accept="image/*" class="hidden" />
+            <div class="text-xs bg-white text-[#0A222E] p-3 rounded tracking-wider" id="customFileButton">Select image</div>
           </div>
         </div>
-        <div class="flex gap-3 items-start mt-6">
-          <img src="./assets/images/internet.svg" alt="" class="h-4 mt-[5px]">
-          <div>
-             oit.lagosstate.gov.ng
-          </div>
+
+        <button id="screenshotButton" class="mt-4 p-4 bg-black text-white rounded flex gap-3 items-center">
+          <span>Download</span>
+          <img src="/assets/images/download.svg" alt="" class="h-5">
+        </button>
+
+      </div>
+       <div class="border rounded-md overflow-hidden" id="captureDiv">
+        <div class="bg-[#E9F4E4] w-full aspect-square">
+           <div class="flex justify-center pt-[6%]">
+              <img src="/assets/images/gratitude challenge.png" alt="" class="w-[35%] md:w-[40%]">
+           </div>
+           <div class="relative px-[12%] -mt-1">
+             <div class="w-full bg-white mt-10 grid gap-1 rounded-xl overflow-hidden">
+              <div class="grid grid-cols-5">
+                <div class="bg-[#009D28] col-span-1"></div>
+                <div class="bg-[#0A222E] col-span-4">
+                  <div class="ml-[28%] md:ml-[24%] mr-[10%] text-white pt-4 pb-3 grid gap-1">
+                    <p class="text-xs md:text-sm text-[#27D327] tracking-widest">MY NAME IS</p>
+                    <p class="font-bold leading-none text-[1.6em] md:text-[2.5em] min-h-[60px] md:min-h-[80px] overflow-hidden text-responsive text-ellipsis" id="displayName">
+                      Abdul Rahman
+                    </p>
+                  </div>
+                  <div class="text-[8px] md:text-[10px] text-white px-[8%] leading-normal tracking-wide mb-4">
+                      Join me in earning continuous rewards through 
+                      a monthly minimum contribution of N1,000 towards 
+                      Sadaqah Jaariyah projects.
+                  </div>
+                </div>
+              </div>
+              <div class="flex text-xs text-white">
+                <div class="bg-[#0A222E] text-[8px] md:text-[10px] tracking-wide w-[40%] p-[2%] text-center">BECOME A MEMBER NOW</div>
+                <div class="bg-[#27D327] truncate text-[8.5px] md:text-[10px] tracking-wide w-[60%] p-[2%] text-center">Visit: www.mosquepay.org/community </div>
+              </div>
+             </div>
+             <div class="absolute -top-8 left-8 w-full h-full">
+               <div class="w-[33%] aspect-square bg-gray-200 border-8 border-[#ffffff] rounded-full overflow-hidden">
+                <img id="previewImage" src="" alt="Preview" class="w-full h-full object-cover hidden">
+               </div>
+             </div>
+           </div>
+           <div class="flex justify-center mt-4">
+            <img src="/assets/images/social media.png" alt="" class="h-3">
+           </div>
         </div>
+       </div>
      </div>
   </body>
 </html>
