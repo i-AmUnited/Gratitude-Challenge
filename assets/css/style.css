@@ -4,8 +4,3 @@
 body{
   font-family: 'Garant Pro', sans-serif;                                           
 }
-
-.text-responsive {
-  font-size: clamp(0.5px, 2.5em, 10px);
-  line-height: 1;
-}
