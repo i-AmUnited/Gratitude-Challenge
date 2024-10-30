@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const inputField = document.getElementById("nameInput");
     const displayName = document.getElementById("displayName");
-    const defaultText = "Abdul Rahman";
+    const defaultText = "Abdulrasheed Olanrewaju";
 
     displayName.textContent = defaultText;
 
