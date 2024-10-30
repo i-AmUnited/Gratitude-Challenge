@@ -79,5 +79,5 @@ document.addEventListener("DOMContentLoaded", function() {
         .catch(error => console.error("Screenshot failed:", error));
     });
     
-    
+    // document.title = "Gratitude challenge - Card generator"
 });
